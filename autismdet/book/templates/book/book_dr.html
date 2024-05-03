@@ -1,0 +1,44 @@
+{% extends 'temp/muser.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>bookdr</title>
+</head>
+<body>
+	<center><h1>BOOK DOCTOR</h1>
+		<form method="post">
+            {% csrf_token %}
+			<table>
+				<tr>
+					<td>Doctor Name</td>
+					<td><input type="text" name="dr" value="{{ s.dr.name }}"  required class="form-control" style="width:250px">
+				</tr>
+				<tr>
+					<td>Slot</td>
+					<td><input type="text" name="slot" value="{{ s.slot_number }}"  required class="form-control" style="width:250px"></td>
+					<td>Slot From</td>
+					<td><input type="text" name="slot" value="{{ s.from_field }}"  required class="form-control" style="width:250px"></td>
+					<td>Slot To</td>
+					<td><input type="text" name="slot" value="{{ s.to }}"  required class="form-control" style="width:250px"></td>
+				</tr>
+				<tr>
+					<td>Date</td>
+					<td><input type="date" name="date" required="" class="form-control" style="width:250px"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" name="btn" value="Book" class="btn btn-outline-dark" style="width: 250px;border-radius: 20px"></td>
+				</tr>
+			</table>
+		</form>
+        {% if mdg %}
+            <script>
+            alert("Booking Successfull...")
+            </script>
+        {% endif %}
+	</center>
+
+</body>
+</html>
+{% endblock %}

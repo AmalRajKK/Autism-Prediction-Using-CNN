@@ -1,0 +1,34 @@
+{% extends 'temp/muser.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>approved booking</title>
+</head>
+<body>
+	<center>
+		<h1>Approved Booking</h1>
+		<table border="2" class="table table-striped">
+			<tr class="text-dark">
+				<th>Doctor Name</th>
+				<th>Clinic Name</th>
+				<th>Date</th>
+				<th>Time</th>
+				<th>Status</th>
+			</tr>
+            {% for i in b %}
+			<tr class="text-dark">
+				<td>{{ i.slot.dr.name }}</td>
+				<td>{{ i.slot.dr.hospital_name }}</td>
+				<td>{{ i.date }}</td>
+				<td>{{ i.slot.from_field}}</td>
+				<td>{{ i.status }}</td>
+			</tr>
+            {% endfor %}
+		</table>
+	</center>
+
+</body>
+</html>
+{% endblock %}

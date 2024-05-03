@@ -1,0 +1,52 @@
+{% extends 'temp/madmin.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MANAGE DOCTOR</title>
+</head>
+<body>
+<CENTER>
+	<h1>Manage Doctor</h1>
+	<table border="2" class="table table-striped">
+		<tr class="text-dark">
+			<th>Name</th>
+			<th>Specilization</th>
+			<th>Address</th>
+			<th>Contact Number</th>
+			<th>Mail Address</th>
+			<th>Cirtificate</th>
+			<th>Hospital Name</th>
+			<th>Address</th>
+			<th>Contact Number</th>
+			<th>Status</th>
+		</tr>
+        {% for i in c %}
+		<tr class="text-dark">
+			<td>{{ i.name}}</td>
+			<td>{{ i.specilization }}</td>
+			<td>{{ i.dr_address }}</td>
+			<td>{{ i.dr_contactnumber }}</td>
+			<td>{{ i.mailaddress }}</td>
+			<td>{{ i.cirtificare }}</td>
+			<td>{{ i.hospital_name }}</td>
+			<td>{{i.hospital_address}}</td>
+			<td>{{ i.hospital_contact_number }}</td>
+			<td>{{ i.status }}</td>
+            {% if i.status == "Approved"%}
+                <td><a href="/doctor/reject/{{ i.dr_id }}" class="btn btn-outline-dark" style="width: 100px;border-radius: 20px">Reject</a></td>
+            {% elif i.status == "Rejected" %}
+			    <td><a href="/doctor/approve/{{ i.dr_id }}" class="btn btn-outline-dark" style="width: 100px;border-radius: 20px">Approve</a></td>
+            {% else %}
+                <td><a href="/doctor/approve/{{ i.dr_id }}" class="btn btn-outline-dark" style="width: 100px;border-radius: 20px">Approve</a></td>
+                <td><a href="/doctor/reject/{{ i.dr_id }}" class="btn btn-outline-dark" style="width: 100px;border-radius: 20px">Reject</a></td>
+            {% endif %}
+
+		</tr>
+        {% endfor %}
+	</table>
+</CENTER>
+</body>
+</html>
+{% endblock %}

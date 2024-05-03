@@ -1,0 +1,30 @@
+{% extends 'temp/madmin.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>manage data</title>
+</head>
+<body>
+	<center>
+	<h1>Manage Not Autistic Dataset</h1>
+	<table border="2" class="table table-striped">
+		<tr class="text-dark">
+			<th>Image</th>
+			<th>Feedback</th>
+			<th></th>
+		</tr>
+		<tr class="text-dark">
+            {% for i in w %}
+			<td>{{i.image}}</td>
+			<td>{{ i.result}}</td>
+{#			<td><a href="" class="btn btn-primary" style="height: 200%;width: 150px">Delete</a></td>#}
+                <td><a href="/feedback/delete2/{{i.notaut_id}}" class="btn btn-outline-dark" style="width: 100px;border-radius: 20px">Delete</a></td>
+
+		</tr>
+            {% endfor %}
+	</table>
+</center>
+</body>
+</html>
+{% endblock %}

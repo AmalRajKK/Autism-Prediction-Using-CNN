@@ -1,0 +1,41 @@
+{% extends 'temp/mdoctor.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>add slot</title>
+</head>
+<body>
+	<center>
+		<h1>Add Slot</h1>
+		<form method="post">
+            {% csrf_token %}
+			    <tr class="text-dark">
+				    <td>slot Number</td>
+				    <td><input type="number" name="sno" required class="form-control"style="width:250px"></td>
+			    </tr>
+		    	<tr class="text-dark">
+				<td>Slot From</td>
+		    		<td><input type="time" name="from" required="" class="form-control"style="width:250px"></td>
+		    	</tr>
+		    	<tr class="text-dark">
+		    		<td>Slot To</td>
+			    	<td><input type="time" name="to" required="" class="form-control"style="width:250px"></td>
+	    		</tr>
+		    	<tr class="text-dark">
+			    	<td></td>
+				    <td><input type="submit" name="btn" value="Add Slot" class="btn btn-outline-dark" style="width: 250px;border-radius: 20px"></td>
+	    		</tr>
+		    </form>
+        {% if msg %}
+            <script>
+            alert("New Slot Added..")
+            </script>
+        {% endif %}
+
+	    </center>
+
+</body>
+</html>
+{% endblock %}

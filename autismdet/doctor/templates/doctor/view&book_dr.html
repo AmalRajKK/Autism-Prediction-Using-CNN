@@ -1,0 +1,36 @@
+{% extends 'temp/muser.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View and book dr</title>
+</head>
+<body>
+	<center>
+		<h1>view and book Docrtor</h1>
+		<table border="2" class="table table-striped">
+			<tr class="text-dark">
+				<th>Dr_Name</th>
+				<th>Specilization</th>
+				<th>Hospial Name</th>
+				<th>Hospital Address</th>
+				<th>Contact Number</th>
+				<th>Status</th>
+			</tr>
+            {% for i in d %}
+			<tr class="text-dark">
+				<td>{{ i.name }}</td>
+				<td>{{ i.specilization }}</td>
+				<td>{{ i.hospital_name }}</td>
+				<td>{{ i.hospital_address }}</td>
+				<td>{{ i.hospital_contact_number }}</td>
+				<td>{{ i.status }}</td>
+				<td><a href="/slot/slot/{{ i.dr_id }}" class="btn btn-outline-dark" style="width: 250px;border-radius: 20px">Book Now</a></td>
+			</tr>
+            {% endfor %}
+		</table>
+	</center>
+
+</body>
+</html>
+{% endblock %}

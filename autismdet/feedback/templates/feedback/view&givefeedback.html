@@ -1,0 +1,41 @@
+{% extends 'temp/mdoctor.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>view&give feedback</title>
+</head>
+<body>
+	<center>
+		<h1>view and give feedback</h1>
+		<table border="2" class="table table-striped">
+			<tr class="text-dark">
+                <th>Username</th>
+				<th>image</th>
+				<th>result</th>
+				<th>feedback</th>
+                <th></th>
+			</tr>
+            {% for i in e %}
+			<tr class="text-dark">
+            <td>{{ i.user.user_name}}</td>
+				<td><a href="/static/{{ i.image }}"><img src="/static/{{ i.image }}" height="100px" width="100px"></a> </td>
+				<td>{{ i.result}}</td>
+				<td>{{ i.feedback }}</td>
+                    {% if i.feedback == "Not Autistic"%}
+                <td><a href="/feedback/autistic/{{ i.feedback_id }}" class="btn btn-outline-dark" style="width: 250px;border-radius: 20px">Autistic</a></td>
+                    {% elif i.feedback ==  "Autistic"%}
+                <td><a href="/feedback/notau/{{ i.feedback_id }}" class="btn btn-outline-dark" style="width: 250px;border-radius: 20px">Not Autistic</a></td>
+                     {% else %}
+                <td><a href="/feedback/autistic/{{ i.feedback_id }}" class="btn btn-outline-dark" style="width: 250px;border-radius: 20px">Autistic</a></td>
+                <td><a href="/feedback/notau/{{ i.feedback_id }}" class="btn btn-outline-dark" style="width: 250px;border-radius: 20px">Not Autistic</a></td>
+                {% endif %}
+			</tr>
+            {% endfor %}
+		</table>
+	</center>
+
+</body>
+</html>
+{% endblock %}

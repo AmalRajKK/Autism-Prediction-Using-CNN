@@ -1,0 +1,50 @@
+{% extends 'temp/mhome.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register user</title>
+</head>
+<body>
+	<center>
+		<h1>REGISTER USER</h1>
+		<form method="post">
+            {% csrf_token %}
+			<table >
+			<tr class="text-dark">
+				<td>Name</td>
+				<td><input type="text" name="uname" required="" class="form-control" style="width:250px"></td>
+			</tr>
+			<tr class="text-dark">
+				<td>Mail Address</td>
+				<td><input type="email" name="mail" placeholder="Enter your mail" required="" class="form-control" style="width:250px"></td>
+			</tr>
+			<tr class="text-dark">
+				<td>Phone Number</td>
+				<td><input type="text" name="phn" pattern="[0-9]{10}" required class="form-control" style="width:250px"></td>
+			</tr>
+			<tr class="text-dark">
+				<td>Address</td>
+				<td><input type="text" name="add" required="" class="form-control" style="width:250px"></td>
+			</tr>
+			<tr class="text-dark">
+				<td>Password</td>
+				<td><input type="password" name="pswd" required="" class="form-control" style="width:250px"></td>
+			</tr>
+			<tr class="text-dark">
+				<td></td>
+				<td><input type="submit" name="btn" value="Submit" class="btn btn-outline-dark" style="width: 250px;border-radius: 20px"></td>
+			</tr>
+			</table>
+		</form>
+        {% if msg %}
+            <script>
+            alert("Successfully Registerd...")
+            </script>
+        {% endif %}
+		
+	</center>
+
+</body>
+</html>
+{% endblock %}

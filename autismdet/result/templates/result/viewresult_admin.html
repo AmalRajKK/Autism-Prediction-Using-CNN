@@ -1,0 +1,30 @@
+{% extends 'temp/madmin.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>view Result Admin</title>
+</head>
+<body>
+	<center>
+		<h1>View Result Admin</h1>
+		<table border="2" class="table table-striped">
+			<tr class="text-dark">
+                <th>User name</th>
+				<th>Image</th>
+				<th>Result</th>
+			</tr>
+            {% for i in j %}
+			<tr class="text-dark">
+            <td>{{ i.user.user_name }}</td>
+				<td><a href="/static/{{ i.image }}"><img src="/static/{{ i.image }}" height="100px" width="100px"></a> </td>
+				<td>{{ i.result }}</td>
+			</tr>
+            {% endfor %}
+		</table>
+	</center>
+
+</body>
+</html>
+{% endblock %}

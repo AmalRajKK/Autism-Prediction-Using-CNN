@@ -1,0 +1,75 @@
+{% extends 'temp/mhome.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>drregister</title>
+</head>
+<body>
+	<center>
+		<h1>DOCTOR REGISTER</h1>
+		<h2>PERSONAL DEATILS</h2>
+		<form method="post">
+            {% csrf_token %}
+			<table >
+				<tr class="text-dark">
+					<td>Name</td>
+					<td><input type="text" name="drname" required="" class="form-control" style="width:250px"></td>
+				</tr>
+				<tr class="text-dark">
+					<td>Specilizatoon</td>
+					<td><input type="text" name="spl" required="" class="form-control" style="width:250px"></td>
+				</tr>
+				<tr class="text-dark">
+					<td>Address</td>
+					<td><input type="text" name="draddress"required="" class="form-control" style="width:250px"></td>
+				</tr>
+				<tr class="text-dark">
+					<td>Contact Number</td>
+					<td><input type="number" name="drnumber"required="" pattern="[0-9]{10}" class="form-control" style="width:250px"></td>
+				</tr>
+				<tr class="text-dark">
+					<td>Mail Address</td>
+					<td><input type="email" name="mail" placeholder="Enter your mail" required="" class="form-control" style="width:250px"></td>
+				</tr>
+				<tr class="text-dark">
+					<td>Cirtificate</td>
+					<td><input type="file" name="cirtificate" required="" class="form-control" style="width:250px"></td>
+				</tr>
+
+			</table>
+		<h2>HOSPITAL DEATILS</h2>
+			<table>
+				<tr class="text-dark">
+					<td>Hospital Name</td>
+					<td><input type="texr" name="name" required=""class="form-control" style="width:250px"></td>
+				</tr>
+				<tr class="text-dark">
+					<td>Address</td>
+					<td><input type="text" name="address"required=""class="form-control" style="width:250px"></td>
+				</tr>
+				<tr class="text-dark">
+					<td>Contact Number</td>
+					<td><input type="number" name="number"required="" pattern="[0-9]{10}" class="form-control" style="width:250px"></td>
+				</tr>
+				<tr class="text-dark">
+					<td>Password</td>
+					<td><input type="Password" name="pswd"required class="form-control" style="width:250px"></td>
+				</tr>
+				<tr class="text-dark">
+					<td></td>
+					<td><input type="submit" name="btn" value="Submit" class="btn btn-outline-dark" style="width: 250px;border-radius: 20px"></td>
+				</tr>
+				
+			</table>
+		</form>
+        {% if msg %}
+            <script>
+            alert("Successfully Registered...")
+            </script>
+        {% endif %}
+	</center>
+
+</body>
+</html>
+{% endblock %}
